@@ -1,12 +1,10 @@
-<div dir="rtl" align="right">
-
 # AI Audio Models — Skill
 
-یک بستهٔ دانش آماده برای **Claude** و **ChatGPT** که به مدل کمک می‌کند دربارهٔ انتخاب، قیمت، مجوز و مقایسهٔ مدل‌های صوتی هوش مصنوعی پاسخ درست بدهد: TTS، ASR، کلونینگ صدا، موسیقی، افکت صدا، آواز، مدل‌های Omni و پردازش سیگنال.
+A knowledge package that teaches **Claude** and **ChatGPT** how to answer questions about choosing, pricing, licensing, and comparing AI audio models: TTS, ASR, voice cloning, music generation, sound effects, singing synthesis, audio LLMs, and audio processing.
 
-مبتنی بر گزارش دوزبانهٔ [نقشهٔ جامع مدل‌های صوتی](https://saeedsheikhamiri.github.io/audio-ai-models-report/) — ۸ دسته، ۱۹ جدول مقایسه و بیش از ۲۰۰ مدل.
+Built from the bilingual report [The Complete Map of AI Audio Models](https://saeedsheikhamiri.github.io/audio-ai-models-report/) — eight categories, nineteen comparison tables, 200+ models and services.
 
-</div>
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 
 ---
 
@@ -69,7 +67,7 @@ Run these to check the skill is actually working. A good answer is short, gives 
 - **Progressive disclosure.** `SKILL.md` is deliberately short; the heavy tables live in `references/` so they only load when needed.
 - **Prices are dated.** Every file states the month. The skill instructs the model to treat numbers as estimates and to verify.
 - **License-first.** The most common expensive mistake is recommending a non-commercial weight for a commercial product, so licensing is a mandatory step, not an appendix.
-- **Persian is first-class.** A dedicated reference covers WER expectations, normalization pitfalls, and the open-model gap.
+- **Language-aware.** A dedicated reference covers Persian expectations, normalization pitfalls, and the open-model gap; the same structure extends to other under-resourced languages.
 
 ## Updating
 

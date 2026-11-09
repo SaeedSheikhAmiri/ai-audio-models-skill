@@ -17,15 +17,15 @@ Persian is a second-tier language for most audio models: supported, but rarely a
 ### Common failure modes
 
 - **Digits:** spoken numbers vs. digits, and Persian vs. Latin numerals in output.
-- **Half-space (نیم‌فاصله):** "می‌روم" may come out as "میروم" or "می روم".
-- **Letter variants:** Arabic ي/ك vs. Persian ی/ک; alef with madda (آ).
+- **Half-space (the zero-width non-joiner, U+200C):** a prefixed verb such as *mi-ravam* may come out as one solid word (*miravam*) or as two separated words (*mi ravam*). All three variants are the same phrase to a human and different strings to your pipeline.
+- **Letter variants:** Arabic yeh/kaf (U+064A, U+0643) versus Persian yeh/keheh (U+06CC, U+06A9); alef with madda (U+0622). Normalize before comparing transcripts.
 - **Proper nouns and acronyms** — the dominant error source in technical or news content.
 - **Code-switching** — Persian sentences with English technical terms degrade quickly.
 
 ### Recommended pipeline
 
 1. Whisper large-v3-turbo for draft transcription.
-2. Normalization layer: unify ی/ک, fix half-spaces, convert digits consistently.
+2. Normalization layer: unify the two yeh and kaf forms, repair half-spaces, convert digits consistently.
 3. Domain lexicon for names and acronyms.
 4. Human review on a sample; measure WER per domain, not overall.
 5. If WER is still too high, fine-tune Whisper on 10–50 hours of labeled in-domain audio.
@@ -44,7 +44,7 @@ Persian is a second-tier language for most audio models: supported, but rarely a
 ### Persian text normalization for TTS
 
 - Expand numbers, dates, currencies, and abbreviations before synthesis.
-- Handle ezafe (اضافه) where it changes pronunciation — most models do not infer it.
+- Handle ezafe (the unstressed *-e* linking vowel) where it changes pronunciation — most models do not infer it.
 - Provide a pronunciation lexicon for proper nouns.
 - Watch half-space handling: it affects both pronunciation and timing.
 - Test sentence-final intonation; many multilingual models flatten it.
